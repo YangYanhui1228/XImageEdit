@@ -91,6 +91,7 @@
     <QtRcc Include="XImageEdit.qrc" />
     <QtUic Include="XImageEdit.ui" />
     <QtMoc Include="XImageEdit.h" />
+    <ClCompile Include="XEditView.cpp" />
     <ClCompile Include="XImage.cpp" />
     <ClCompile Include="XImageEdit.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
@@ -102,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="XImage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="XEditView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

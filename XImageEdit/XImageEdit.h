@@ -10,7 +10,7 @@ class XImageEdit : public QWidget
 
 public:
     XImageEdit(QWidget *parent = Q_NULLPTR);
-
+ 
 private:
     Ui::XImageEditClass ui;
 };

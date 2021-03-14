@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QWidget>
 #include "ui_XImageEdit.h"
+#include "XImage.h"
 
 class XImageEdit : public QWidget
 {

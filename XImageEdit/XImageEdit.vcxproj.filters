@@ -32,9 +32,6 @@
     <QtMoc Include="XImageEdit.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="XImageEdit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,10 +40,13 @@
     <ClCompile Include="XImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="XImageEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="XImage.h">
+    <QtMoc Include="XImage.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
   </ItemGroup>
 </Project>

@@ -4,10 +4,13 @@
 #include <QPainter>
 #include "XEditView.h"
 #include <QMouseEvent>
-
-XImage::XImage(QWidget* p)
+#include "XModel.h"
+XModel m;
+XImage::XImage(QWidget* p):QWidget(p)
 {
 	XEditView::Get()->InitDevice(this);
+	//视图观察模型
+	m.Attrach(XEditView::Get());
 }
 
 XImage::~XImage()
@@ -42,13 +45,15 @@ void XImage::Open()
 //重载鼠标函数
 void  XImage::mousePressEvent(QMouseEvent* e)
 {
-	XEditView::Get()->poss.push_back(XPos(e->x(), e->y()));
+	//XEditView::Get()->poss.push_back(XPos(e->x(), e->y()));
+	m.Add(XPos(e->x(), e->y()));
 }
 
 //默认鼠标移动事件，按下才触发
 void  XImage::mouseMoveEvent(QMouseEvent* e)
 {
-	XEditView::Get()->poss.push_back(XPos(e->x(), e->y()));
+	//XEditView::Get()->poss.push_back(XPos(e->x(), e->y()));
+	m.Add(XPos(e->x(), e->y()));
 	update();
 }
 

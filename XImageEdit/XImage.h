@@ -22,5 +22,4 @@ public:
 public slots:
 	void Open();
 protected:
-	QImage src;
 };

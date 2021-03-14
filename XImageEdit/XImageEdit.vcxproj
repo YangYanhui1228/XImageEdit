@@ -88,6 +88,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="XModel.cpp" />
+    <ClCompile Include="XSubject.cpp" />
     <QtRcc Include="XImageEdit.qrc" />
     <QtUic Include="XImageEdit.ui" />
     <QtMoc Include="XImageEdit.h" />
@@ -105,7 +107,10 @@
     <QtMoc Include="XImage.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IObserver.h" />
     <ClInclude Include="XEditView.h" />
+    <ClInclude Include="XModel.h" />
+    <ClInclude Include="XSubject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

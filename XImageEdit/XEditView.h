@@ -1,19 +1,12 @@
 #pragma once
 #include <QImage>
 #include <vector>
+#include "IObserver.h"
 using namespace std;
 
 class QWidget;
-struct XPos 
-{
-	XPos(int x, int y) {
-		this->x = x;
-		this->y = y;
-	}
-	int x = 0;
-	int y = 0;
-};
-class XEditView
+
+class XEditView: public IObserver
 {
 public:
 	//单例模式
@@ -23,6 +16,9 @@ public:
 		return &v;
 	}
 
+	//刷新到out中
+	virtual void Update(XSubject* data);
+
 	//显示目标
 	virtual void InitDevice(void* d);
 
@@ -30,14 +26,17 @@ public:
 	virtual bool InitBack(const char* url);
 
 
-	//绘制结果
+	//绘制out结果
 	virtual void Paint();
 	~XEditView();
-	//定坐标
-	vector<XPos> poss;
+
 protected:
 	XEditView();
 	QWidget* device;
+	//原图
 	QImage src;
+
+	//输出图
+	QImage out;
 };
 

@@ -46,6 +46,12 @@
     <ClCompile Include="XEditView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="XSubject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="XImage.h">
@@ -54,6 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XEditView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XSubject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

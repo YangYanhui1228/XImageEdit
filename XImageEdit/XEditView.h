@@ -1,6 +1,18 @@
 #pragma once
 #include <QImage>
+#include <vector>
+using namespace std;
+
 class QWidget;
+struct XPos 
+{
+	XPos(int x, int y) {
+		this->x = x;
+		this->y = y;
+	}
+	int x = 0;
+	int y = 0;
+};
 class XEditView
 {
 public:
@@ -21,6 +33,8 @@ public:
 	//绘制结果
 	virtual void Paint();
 	~XEditView();
+	//定坐标
+	vector<XPos> poss;
 protected:
 	XEditView();
 	QWidget* device;

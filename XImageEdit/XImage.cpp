@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include <QPainter>
 #include "XEditView.h"
+#include <QMouseEvent>
 
 XImage::XImage(QWidget* p)
 {
@@ -11,15 +12,6 @@ XImage::XImage(QWidget* p)
 
 XImage::~XImage()
 {
-}
-
-void XImage::paintEvent(QPaintEvent* e)
-{
-	XEditView::Get()->Paint();
-	////在当前窗口（this）绘制
-	//QPainter p(this);
-	////绘制图片
-	//p.drawImage(0, 0, src);
 }
 
 void XImage::Open()
@@ -44,4 +36,28 @@ void XImage::Open()
 	
 	//刷新显示
 	update();
+}
+
+
+//重载鼠标函数
+void  XImage::mousePressEvent(QMouseEvent* e)
+{
+	XEditView::Get()->poss.push_back(XPos(e->x(), e->y()));
+}
+
+//默认鼠标移动事件，按下才触发
+void  XImage::mouseMoveEvent(QMouseEvent* e)
+{
+	XEditView::Get()->poss.push_back(XPos(e->x(), e->y()));
+	update();
+}
+
+//重载绘制方法 update后会调用
+void XImage::paintEvent(QPaintEvent* e)
+{
+	XEditView::Get()->Paint();
+	////在当前窗口（this）绘制
+	//QPainter p(this);
+	////绘制图片
+	//p.drawImage(0, 0, src);
 }

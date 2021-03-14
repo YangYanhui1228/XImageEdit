@@ -1,5 +1,6 @@
 #pragma once
 #include <QWidget>
+#include <QImage>
 
 class XImage :public QWidget
 {
@@ -8,6 +9,10 @@ class XImage :public QWidget
 public:
 	XImage(QWidget* p = 0);
 	~XImage();
+	//重载绘制方法 update后会调用
+	void paintEvent(QPaintEvent *e);
 public slots:
 	void Open();
+protected:
+	QImage src;
 };

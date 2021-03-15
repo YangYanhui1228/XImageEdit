@@ -1,8 +1,7 @@
 #pragma once
 #include "IGraph.h"
-class XPenGraph :public IGraph
+class XRectGraph :public IGraph
 {
 public:
 	virtual void Draw(XModel* m);
-
 };

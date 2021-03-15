@@ -14,20 +14,26 @@ IController* IController::Create(IMVCFactory* f)
 
 void IController::Init(void* device)
 {
+	//添加背景图
+	AddModel(XIMAGE);
 	v->InitDevice(device);
 }
 
 bool IController::InitBack(const char* url)
 {
-	return v->InitBack(url);
+	bool re = v->InitBack(url);
+	//添加背景图
+	AddModel(XIMAGE);
+	return re;
 }
 
-void IController::AddModel()
+void IController::AddModel(int s)
 {
+	if (s < 0) s = status;
 	//创建模型，添加观察者
 	m = f->CreateM();
 	m->Attach(v);
-	m->type = status;
+	m->type = s;
 	tasks.push_back(m);
 }
 
@@ -35,11 +41,21 @@ void IController::Add(int x, int y)
 {
 	if (!m) return;
 	m->Add(XPos(x, y));
+	NotifyAll();
 }
 
 void IController::Paint()
 {
 	v->Paint();
+}
+
+void IController::NotifyAll()
+{
+	int size = tasks.size();
+	for (int i = 0; i < size; i++) 
+	{
+		tasks[i]->Notify();
+	}
 }
 
 IController::IController()

@@ -4,7 +4,7 @@ void XModel::Add(XPos pos)
 {
 	this->poss.push_back(pos);
 	//通知观察者
-	this->Notify();
+	//this->Notify();
 }
 
 XModel::XModel()

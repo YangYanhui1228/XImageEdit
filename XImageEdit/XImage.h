@@ -23,6 +23,7 @@ public slots:
 	void Open();
 	void SetPen();
 	void SetEraser();
+	void SetRect();
 protected:
 	IController* c = 0;
 };

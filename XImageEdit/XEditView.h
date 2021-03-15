@@ -39,7 +39,7 @@ public:
 		return view;
 	}
 
-	~XEditView();
+	virtual ~XEditView();
 
 protected:
 	XEditView();

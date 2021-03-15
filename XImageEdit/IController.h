@@ -4,7 +4,9 @@
 enum XSTATUS
 {
 	XPEN,
-	XERASER
+	XERASER,
+	XRECT,
+	XIMAGE
 };
 
 class IController
@@ -14,12 +16,13 @@ public:
 	virtual void Init(void* device);
 	//载入背景图
 	virtual bool InitBack(const char* url);
-	//添加模型对象
-	virtual void AddModel();
+	//添加模型对象 -1取当前状态
+	virtual void AddModel(int s = -1);
 	//给当前模型添加数据
 	virtual void Add(int x, int y);
 	virtual void Paint();
 	virtual void SetStatus(XSTATUS s) { status = s; }
+	virtual void NotifyAll();
 	IController();
 	~IController();
 protected:

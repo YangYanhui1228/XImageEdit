@@ -90,9 +90,11 @@
   <ItemGroup>
     <ClCompile Include="IController.cpp" />
     <ClCompile Include="XEraseGraph.cpp" />
+    <ClCompile Include="XImageGraph.cpp" />
     <ClCompile Include="XModel.cpp" />
     <ClCompile Include="XMVCFactory.cpp" />
     <ClCompile Include="XPenGraph.cpp" />
+    <ClCompile Include="XRectGraph.cpp" />
     <ClCompile Include="XSubject.cpp" />
     <QtRcc Include="XImageEdit.qrc" />
     <QtUic Include="XImageEdit.ui" />
@@ -118,9 +120,11 @@
     <ClInclude Include="IView.h" />
     <ClInclude Include="XEditView.h" />
     <ClInclude Include="XEraseGraph.h" />
+    <ClInclude Include="XImageGraph.h" />
     <ClInclude Include="XModel.h" />
     <ClInclude Include="XMVCFactory.h" />
     <ClInclude Include="XPenGraph.h" />
+    <ClInclude Include="XRectGraph.h" />
     <ClInclude Include="XSubject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

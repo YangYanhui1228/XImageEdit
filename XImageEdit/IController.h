@@ -1,6 +1,12 @@
 #pragma once
 #include "IMVCFactory.h"
 #include <vector>
+enum XSTATUS
+{
+	XPEN,
+	XERASER
+};
+
 class IController
 {
 public:

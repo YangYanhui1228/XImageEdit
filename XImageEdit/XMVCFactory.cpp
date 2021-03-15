@@ -2,15 +2,7 @@
 #include "XModel.h"
 #include "IController.h"
 #include "XEditView.h"
-
-XMVCFactory::XMVCFactory()
-{
-}
-
-XMVCFactory::~XMVCFactory()
-{
-}
-
+#include "XPenGraph.h"
 XModel* XMVCFactory::CreateM()
 {
     return new XModel();
@@ -18,6 +10,7 @@ XModel* XMVCFactory::CreateM()
 
 IView* XMVCFactory::CreateV()
 {
+    XEditView::Get()->RegView<XPenGraph>(XPEN);
     return XEditView::Get();
 }
 

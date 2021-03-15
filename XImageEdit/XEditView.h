@@ -3,6 +3,8 @@
 #include <vector>
 #include "IObserver.h"
 #include "IView.h"
+#include <map>
+#include "IGraph.h"
 using namespace std;
 
 class QWidget;
@@ -28,10 +30,23 @@ public:
 
 	//绘制out结果
 	virtual void Paint();
+
+	template<class ViewClass>
+	IGraph* RegView(int type)
+	{
+		ViewClass *view = new ViewClass();
+		views.insert(make_pair(type, view));
+		return view;
+	}
+
 	~XEditView();
 
 protected:
 	XEditView();
+	
+	//图元编号外部维护
+	std::map<int, IGraph*> views;
+
 	QWidget* device;
 	//原图
 	QImage src;

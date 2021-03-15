@@ -3,7 +3,7 @@
 #include <QWidget>
 #include "XModel.h"
 #include "XPenGraph.h"
-XPenGraph xpen;
+//XPenGraph xpen;
 XEditView::XEditView()
 {
 	//初始化图像，未打卡图像直接画图
@@ -15,7 +15,14 @@ void XEditView::Update(XSubject* data)
 {
 	if (!data) return;
 	XModel* m = static_cast<XModel*>(data);
-	xpen.Draw(m);
+	
+	map<int, IGraph*>::iterator itr = views.begin();
+	for (; itr != views.end(); itr++)
+	{
+		itr->second->Draw(m);
+	}
+	//遍历图元并绘制
+	//xpen.Draw(m);
 
 	//XModel
 
@@ -36,7 +43,12 @@ void XEditView::InitDevice(void* d)
 	//上一次的清理掉
 	op->end();
 	op->begin(&out);
-	xpen.Init(op, &src);
+	map<int, IGraph*>::iterator itr = views.begin();
+	for (; itr != views.end(); itr++) 
+	{
+		itr->second->Init(op, &src);
+	}
+	//xpen.Init(op, &src);
 }
 
 //载入背景图

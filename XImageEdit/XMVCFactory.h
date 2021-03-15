@@ -8,8 +8,7 @@ public:
 		static XMVCFactory f;
 		return &f;
 	}
-	XMVCFactory();
-	~XMVCFactory();
+
 	XModel* CreateM();
 	IView* CreateV();
 	IController* CreateC();

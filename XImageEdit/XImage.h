@@ -21,6 +21,8 @@ public:
 
 public slots:
 	void Open();
+	void SetPen();
+	void SetEraser();
 protected:
 	IController* c = 0;
 };

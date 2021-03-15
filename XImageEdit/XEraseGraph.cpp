@@ -1,16 +1,17 @@
-#include "XPenGraph.h"
+#include "XEraseGraph.h"
 #include "XModel.h"
 #include <QPainter>
 #include <QPen>
-void XPenGraph::Draw(XModel* m)
+void XEraseGraph::Draw(XModel* m)
 {
 	if (!painter || !m) return;
 	QPen pen; //画笔
 	pen.setWidth(5);
-	pen.setColor(QColor(200, 0, 0));
 	//设置连接处
 	pen.setCapStyle(Qt::RoundCap);//顶部样式
 	pen.setJoinStyle(Qt::RoundJoin);//连接处样式
+	//用原图做刷子
+	pen.setBrush(*src);
 	//设置抗锯齿
 	painter->setRenderHint(QPainter::Antialiasing, true);
 	painter->setPen(pen);

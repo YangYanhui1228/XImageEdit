@@ -27,6 +27,7 @@ void IController::AddModel()
 	//创建模型，添加观察者
 	m = f->CreateM();
 	m->Attach(v);
+	m->type = status;
 	tasks.push_back(m);
 }
 

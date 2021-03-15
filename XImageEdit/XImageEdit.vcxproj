@@ -89,6 +89,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IController.cpp" />
+    <ClCompile Include="XEraseGraph.cpp" />
     <ClCompile Include="XModel.cpp" />
     <ClCompile Include="XMVCFactory.cpp" />
     <ClCompile Include="XPenGraph.cpp" />
@@ -116,6 +117,7 @@
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="IView.h" />
     <ClInclude Include="XEditView.h" />
+    <ClInclude Include="XEraseGraph.h" />
     <ClInclude Include="XModel.h" />
     <ClInclude Include="XMVCFactory.h" />
     <ClInclude Include="XPenGraph.h" />

@@ -67,6 +67,16 @@ void  XImage::mouseMoveEvent(QMouseEvent* e)
 	update();
 }
 
+void XImage::SetPen()
+{
+	c->SetStatus(XPEN);
+}
+
+void XImage::SetEraser()
+{
+	c->SetStatus(XERASER);
+}
+
 //重载绘制方法 update后会调用
 void XImage::paintEvent(QPaintEvent* e)
 {

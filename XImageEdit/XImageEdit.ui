@@ -49,7 +49,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="LineButton">
+  <widget class="QPushButton" name="penButton">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -64,11 +64,14 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="autoExclusive">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="eraseButton">
+  <widget class="QPushButton" name="eraserButton">
    <property name="geometry">
     <rect>
      <x>30</x>

@@ -15,12 +15,13 @@ void XEditView::Update(XSubject* data)
 {
 	if (!data) return;
 	XModel* m = static_cast<XModel*>(data);
-	
-	map<int, IGraph*>::iterator itr = views.begin();
-	for (; itr != views.end(); itr++)
-	{
-		itr->second->Draw(m);
-	}
+	views[m->type]->Draw(m);
+
+	//map<int, IGraph*>::iterator itr = views.begin();
+	//for (; itr != views.end(); itr++)
+	//{
+	//	itr->second->Draw(m);
+	//}
 	//遍历图元并绘制
 	//xpen.Draw(m);
 

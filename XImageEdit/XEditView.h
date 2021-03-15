@@ -2,11 +2,12 @@
 #include <QImage>
 #include <vector>
 #include "IObserver.h"
+#include "IView.h"
 using namespace std;
 
 class QWidget;
 
-class XEditView: public IObserver
+class XEditView: public IView
 {
 public:
 	//单例模式
@@ -24,7 +25,6 @@ public:
 
 	//载入背景图
 	virtual bool InitBack(const char* url);
-
 
 	//绘制out结果
 	virtual void Paint();

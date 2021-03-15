@@ -11,7 +11,7 @@ void XSubject::Notify()
 }
 
 //Ìí¼Ó¹Û²ìÕß
-void XSubject::Attrach(IObserver* ob)
+void XSubject::Attach(IObserver* ob)
 {
 	this->obs.push_back(ob);
 }

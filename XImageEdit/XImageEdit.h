@@ -14,4 +14,5 @@ protected:
 
 private:
     Ui::XImageEditClass ui;
+
 };

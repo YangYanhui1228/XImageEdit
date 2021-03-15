@@ -8,7 +8,7 @@ public:
 	virtual void Notify();
 	
 	//ÃÌº”π€≤Ï’ﬂ
-	virtual void Attrach(IObserver* ob);
+	virtual void Attach(IObserver* ob);
 
 protected:
 

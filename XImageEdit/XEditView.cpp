@@ -2,7 +2,8 @@
 #include <QPainter>
 #include <QWidget>
 #include "XModel.h"
-
+#include "XPenGraph.h"
+XPenGraph xpen;
 XEditView::XEditView()
 {
 	//初始化图像，未打卡图像直接画图
@@ -13,21 +14,29 @@ XEditView::XEditView()
 void XEditView::Update(XSubject* data)
 {
 	if (!data) return;
-	//XModel
 	XModel* m = static_cast<XModel*>(data);
-	int size = m->poss.size();
-	QPainter p(&out);
-	for (int i = 1; i < size; i++)
-	{
-		//绘制线，开始点到结束点
-		p.drawLine(QLine(m->poss[i - 1].x, m->poss[i - 1].y, m->poss[i].x, m->poss[i].y));
-	}
+	xpen.Draw(m);
+
+	//XModel
+
+ 	//int size = m->poss.size();
+ 	//QPainter p(&out);
+ 	//for (int i = 1; i < size; i++)
+ 	//{
+ 	//	//绘制线，开始点到结束点
+ 	//	p.drawline(qline(m->poss[i - 1].x, m->poss[i - 1].y, m->poss[i].x, m->poss[i].y));
+ 	//}
 }
 
 //显示目标
 void XEditView::InitDevice(void* d)
 {
 	this->device = (QWidget*)d;
+	if (!op) op = new QPainter(&out);
+	//上一次的清理掉
+	op->end();
+	op->begin(&out);
+	xpen.Init(op, &src);
 }
 
 //载入背景图
@@ -35,7 +44,10 @@ bool XEditView::InitBack(const char* url)
 {
 	//载入图片
 	if (!src.load(QString::fromLocal8Bit(url))) return false;
+	if (op->isActive())
+		op->end();
 	out = src.copy();
+	op->begin(&out);
 	return true;
 }
 

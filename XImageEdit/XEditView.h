@@ -38,5 +38,8 @@ protected:
 
 	//Êä³öÍ¼
 	QImage out;
+
+	//»æÖÆµ½out
+	QPainter* op = 0;
 };
 

@@ -24,7 +24,12 @@ public slots:
 	void Undo();
 	void Redo();
 	void SetPenSize(int size);
+	void SetPenColor(int r, int g, int b, int a);
 protected:
 	IController* c = 0;
 	int penSize = 5;
+	int r = 255; 
+	int g = 0; 
+	int b = 0; 
+	int a = 255;
 };

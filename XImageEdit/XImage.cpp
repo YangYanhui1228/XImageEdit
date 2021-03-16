@@ -8,7 +8,7 @@
 #include "IController.h"
 #include "XMVCFactory.h"
 //XModel m;
-XImage::XImage(QWidget* p):QWidget(p)
+XImage::XImage(QWidget* p) :QWidget(p)
 {
 	c = IController::Create(new XMVCFactory());
 	c->Init(this);
@@ -28,20 +28,20 @@ void XImage::Open()
 	//选择图片
 	QString filename = QFileDialog::getOpenFileName(this, QStringLiteral("打开图片"),
 		"", QStringLiteral("支持的格式(*.jpg *.png *.bmp)"));
-	if (filename.isEmpty()) 
+	if (filename.isEmpty())
 	{
 		qDebug() << "Open filename is empty!";
 		return;
 	}
 	////载入图片
 	//if (!src.load(filename))
-	if(!c->InitBack(filename.toLocal8Bit()))
+	if (!c->InitBack(filename.toLocal8Bit()))
 	{
 		qDebug() << "src load image failed!";
 		return;
 	}
 	qDebug() << "src load image success!";
-	
+
 	//刷新显示
 	update();
 }
@@ -54,6 +54,11 @@ void  XImage::mousePressEvent(QMouseEvent* e)
 	//m.Add(XPos(e->x(), e->y()));
 	c->AddModel();
 	c->SetPara("size", penSize);
+	c->SetPara("r", r);
+	c->SetPara("g", g);
+	c->SetPara("b", b);
+	c->SetPara("a", a);
+	
 	c->Add(e->x(), e->y());
 	//创建一个模型
 }
@@ -100,6 +105,14 @@ void XImage::Redo()
 void XImage::SetPenSize(int size)
 {
 	penSize = size;
+}
+
+void XImage::SetPenColor(int r, int g, int b, int a)
+{
+	this->r = r;
+	this->g = g;
+	this->b = b;
+	this->a = a;
 }
 
 //重载绘制方法 update后会调用

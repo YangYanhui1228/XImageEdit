@@ -118,6 +118,7 @@
     <ClInclude Include="IMVCFactory.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="IView.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="XEditView.h" />
     <ClInclude Include="XEraseGraph.h" />
     <ClInclude Include="XImageGraph.h" />
@@ -126,6 +127,12 @@
     <ClInclude Include="XPenGraph.h" />
     <ClInclude Include="XRectGraph.h" />
     <ClInclude Include="XSubject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="XImageEdit.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

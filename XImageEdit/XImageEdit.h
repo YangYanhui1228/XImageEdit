@@ -10,8 +10,8 @@ class XImageEdit : public QWidget
 
 public:
     XImageEdit(QWidget *parent = Q_NULLPTR);
-protected:
-
+public slots:
+    void SetColor();
 private:
     Ui::XImageEditClass ui;
 

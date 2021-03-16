@@ -6,7 +6,7 @@ void XRectGraph::Draw(XModel* m)
 {
 	if (!painter || !m) return;
 	QPen pen; //画笔
-	pen.setWidth(5);
+	pen.setWidth(m->GetPara("size"));
 	pen.setColor(QColor(200, 0, 0));
 	//设置连接处
 	pen.setCapStyle(Qt::RoundCap);//顶部样式

@@ -53,6 +53,7 @@ void  XImage::mousePressEvent(QMouseEvent* e)
 	//XEditView::Get()->poss.push_back(XPos(e->x(), e->y()));
 	//m.Add(XPos(e->x(), e->y()));
 	c->AddModel();
+	c->SetPara("size", penSize);
 	c->Add(e->x(), e->y());
 	//创建一个模型
 }
@@ -80,6 +81,25 @@ void XImage::SetEraser()
 void XImage::SetRect()
 {
 	c->SetStatus(XRECT);
+}
+
+void XImage::Undo()
+{
+	c->Undo();
+	//刷新显示
+	update();
+}
+
+void XImage::Redo()
+{
+	c->Redo();
+	//刷新显示
+	update();
+}
+
+void XImage::SetPenSize(int size)
+{
+	penSize = size;
 }
 
 //重载绘制方法 update后会调用

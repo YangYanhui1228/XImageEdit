@@ -6,7 +6,7 @@ void XEraseGraph::Draw(XModel* m)
 {
 	if (!painter || !m) return;
 	QPen pen; //画笔
-	pen.setWidth(5);
+	pen.setWidth(m->GetPara("size"));
 	//设置连接处
 	pen.setCapStyle(Qt::RoundCap);//顶部样式
 	pen.setJoinStyle(Qt::RoundJoin);//连接处样式

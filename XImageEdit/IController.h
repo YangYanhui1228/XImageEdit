@@ -23,6 +23,9 @@ public:
 	virtual void Paint();
 	virtual void SetStatus(XSTATUS s) { status = s; }
 	virtual void NotifyAll();
+	virtual void Undo();
+	virtual void Redo();
+	virtual void SetPara(std::string key, int val);
 	IController();
 	~IController();
 protected:
@@ -31,6 +34,7 @@ protected:
 	IMVCFactory* f = 0;
 	//√¸¡Ó∂”¡–
 	std::vector<XModel*> tasks;
+	std::vector<XModel*> retasks;
 	XSTATUS status = XPEN;
 };
 

@@ -47,7 +47,7 @@ protected:
 	//图元编号外部维护
 	std::map<int, IGraph*> views;
 
-	QWidget* device;
+	QWidget *device;
 	//原图
 	QImage src;
 

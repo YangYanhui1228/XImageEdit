@@ -58,6 +58,30 @@ void IController::NotifyAll()
 	}
 }
 
+void IController::Undo()
+{
+	int last = tasks.size() - 1;//»æÖÆÊýÁ¿ - 1
+	if (last < 1)return;
+	retasks.push_back(tasks[last]);
+	tasks.pop_back();
+	NotifyAll();
+}
+
+void IController::Redo()
+{
+	if (retasks.empty()) return;
+	int rlast = retasks.size() - 1;
+	tasks.push_back(retasks[rlast]);
+	retasks.pop_back();
+	NotifyAll();
+}
+
+void IController::SetPara(std::string key, int val)
+{
+	if (!m) return;
+	m->SetPara(key, val);
+}
+
 IController::IController()
 {
 }

@@ -10,4 +10,7 @@ XImageEdit::XImageEdit(QWidget *parent)
 	connect(ui.penButton, SIGNAL(clicked()), ui.image, SLOT(SetPen()));
 	connect(ui.eraserButton, SIGNAL(clicked()), ui.image, SLOT(SetEraser()));
 	connect(ui.rectButton, SIGNAL(clicked()), ui.image, SLOT(SetRect()));
+	connect(ui.undoButton, SIGNAL(clicked()), ui.image, SLOT(Undo()));
+	connect(ui.redoButton, SIGNAL(clicked()), ui.image, SLOT(Redo()));
+	connect(ui.penSizeSlider, SIGNAL(valueChanged(int)), ui.image, SLOT(SetPenSize(int)));
 }

@@ -57,4 +57,3 @@ protected:
 	//ªÊ÷∆µΩout
 	QPainter* op = 0;
 };
-

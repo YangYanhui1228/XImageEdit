@@ -130,4 +130,7 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\图片编辑器.uml" />
+  </ItemGroup>
 </Project>
